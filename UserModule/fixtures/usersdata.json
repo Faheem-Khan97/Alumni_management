@@ -1,0 +1,44 @@
+[
+{
+    "model": "UserModule.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$Wtn0M0T3nhlc$3CkUuMMYijbng3gmXRVk4HqQ2ZfOyAd5boUjesWaUW8=",
+        "last_login": null,
+        "email": "faheemkhan4865@gmail.com",
+        "full_name": "Faheem Khan",
+        "active": false,
+        "staff": true,
+        "admin": true,
+        "join_date": "2020-05-30T17:31:52.335Z"
+    }
+},
+{
+    "model": "UserModule.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$VhAqB0P4Pc3B$cgWDCb5zXY+B3gpec7RWjrLA6TvvJ2LMUaipOQFaG8M=",
+        "last_login": null,
+        "email": "fah@gmail.com",
+        "full_name": "faheem khan",
+        "active": false,
+        "staff": true,
+        "admin": true,
+        "join_date": "2020-05-30T17:43:06.745Z"
+    }
+},
+{
+    "model": "UserModule.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$fPeShXCMGXdO$i+Iti38Fv6EE75ci1efmwOK3mG8mCLHCvRsUO28Dp24=",
+        "last_login": "2020-05-30T17:52:44.057Z",
+        "email": "test@gmail.com",
+        "full_name": "full test",
+        "active": true,
+        "staff": true,
+        "admin": true,
+        "join_date": "2020-05-30T17:52:05.242Z"
+    }
+}
+]

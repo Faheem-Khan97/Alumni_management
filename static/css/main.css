@@ -1,0 +1,33 @@
+/* Set a background image by replacing the URL below */
+body {
+    background: url('./bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+    #total-orders{
+        background-color: #c9dbbd;
+
+    }
+
+    #orders-delivered{
+        background-color: #c9dbbd;
+
+    }  
+    #orders-pending{
+        background-color: #c9dbbd;
+
+    }   
+.profile-pic{
+    min-width: 150px;
+    min-height: 180px;
+    max-width: 200px;
+    max-height: 180px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+#img{
+    width: 120px;
+    height: 32px;
+}
