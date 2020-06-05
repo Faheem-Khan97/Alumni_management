@@ -104,7 +104,18 @@ class User(AbstractBaseUser):
         return self.is_active
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete = models.CASCADE, blank = True, null = True)
+    passout_year = models.IntegerField(null = True, blank = True)
+    home_city = models.CharField(max_length = 120, null = True, blank = True)
+    current_city = models.CharField(max_length = 120, null = True, blank = True)
+    description = models.CharField(max_length = 120, null = True, blank = True)
+    working = models.CharField(max_length = 120, null = True, blank = True)
+    work_history = models.CharField(max_length = 120, null = True, blank = True)
 
+
+    def __str__(self):
+        return str(self.user)
 
 
 

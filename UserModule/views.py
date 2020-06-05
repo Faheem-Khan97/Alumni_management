@@ -8,7 +8,7 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .tokens import account_activation_token
-from .forms import RegisterForm
+from .forms import RegisterForm,UserProfileForm
 from django.contrib.auth import get_user_model
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
@@ -89,6 +89,22 @@ def loginPage(request):
     return render(request, 'UserModule/login.html', context)
 
 
+
+
+
+@login_required(login_url = 'loginPage')
+def User_Profile(request):
+
+    user = request.user.profile
+    form = UserProfileForm(instance = user)
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance = user)
+        if form.is_valid():
+            form.save()
+            return redirect('User_Profile')
+
+    context = {'form': form}
+    return render(request, 'UserModule/userprofile.html', context)
 
 def logoutUser(request):
     logout(request)

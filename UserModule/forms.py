@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-
+from .models import Profile
 User = get_user_model()
 
 
@@ -99,3 +99,18 @@ class UserAdminChangeForm(forms.ModelForm):
         # This is done here, rather than on the field, because the
         # field does not have access to the initial value
         return self.initial["password"] #["password1"]
+
+
+
+
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model =  Profile
+        fields = '__all__'
+        exclude = ['user']
+
+
+
+

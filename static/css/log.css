@@ -64,13 +64,13 @@ body{
    
    }
    .login{
-     padding: 5px 0 25px;
-   }
- 
- 
-  .login a{
-    color: aqua;
+    padding: 5px 0 25px;
   }
+
+
+ .login a{
+   color: aqua;
+ }
 #forget{
   color: aqua;
 }
