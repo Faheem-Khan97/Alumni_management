@@ -93,18 +93,18 @@ def loginPage(request):
 
 
 @login_required(login_url = 'loginPage')
-def User_Profile(request):
+def User_Profile_settings(request):
 
     user = request.user.profile
     form = UserProfileForm(instance = user)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance = user)
+        form = UserProfileForm(request.POST,request.FILES, instance = user)
         if form.is_valid():
             form.save()
-            return redirect('User_Profile')
+            return redirect('User_Profile_settings')
 
     context = {'form': form}
-    return render(request, 'UserModule/userprofile.html', context)
+    return render(request, 'UserModule/userprofilesettings.html', context)
 
 def logoutUser(request):
     logout(request)
