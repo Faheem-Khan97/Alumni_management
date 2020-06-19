@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 #    'UserModule',
-    'UserModule.apps.UsermoduleConfig'
+    'UserModule.apps.UsermoduleConfig',
+    'blog.apps.BlogConfig',
 ]
 AUTH_USER_MODEL = 'UserModule.User'
 

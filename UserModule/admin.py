@@ -12,7 +12,7 @@ class UserAdmin(BaseUserAdmin):
     change_form = UserAdminChangeForm
 
 
-    list_display = ('email', 'full_name', 'is_active', 'is_admin')
+    list_display = ('email', 'full_name', 'is_active')
     list_filter = ('is_admin','is_staff', 'is_active')
 
 

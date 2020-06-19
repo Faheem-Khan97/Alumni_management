@@ -1,0 +1,91 @@
+
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/blog-home.css'%}">
+</head>
+
+<div class="container text-center ">
+
+    <div class="row">
+
+
+        <div class="col-md-3 sidemenu">
+            <p>Lorem, ipsum dolor sique debitis nemo! Eveniet non dolorem quod delectus.</p>
+        </div>
+
+        
+        <div class="col-md-6 post-body mx-0.5 ">
+
+            <div class="text-center">
+                <p>What is happening..</p>
+                <a href="{%url 'createBlog'%}">Share with Your Friends</a>
+            </div>
+
+            <hr>
+
+
+
+
+            {% for post in posts %}
+
+
+                <div class="row">
+
+                    <div class="col-sm-1 pic">
+                        {%if post.author.profile.profile_pic%}
+                            <img src="{{post.author.profile.profile_pic.url}}" alt="" class="profile-pic  ">
+                           
+                        {%else%}
+                            <img src="{% static '/images/user.png'%}" alt="" class="profile-pic  ">
+            
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="col-sm-11 content">
+                       
+                            <p class = " name text-center"><strong >{{post.author.full_name}}</strong> . <span id = "date"> {{post.last_modified}}</span></p> 
+
+                            <p class="font-weight-bold text-info pt-2" >{{post.title}}</p>
+                            <p class="post-text text-left  mx-1">{{post.body}}</p>
+                                <div class="height">
+                                    {% for image in post.files_of_posts_set.all%}
+                                    
+                                    {%if image.files%}
+                                        <a href="{{image.files.url}}"><img class="post-img" src="{{image.files.url}}" alt=""></a>
+                           
+                                    {%endif%}
+                        
+                                    {%endfor%}
+                                </div>
+                                    
+
+                    </div >
+                </div>
+                <hr>
+
+                {% endfor %}
+        </div>
+
+        <div class="col-md-3 friendlist">
+            <p>Lorem, ipsum dolor sique debitis nemo! Eveniet non dolorem quod delectus.</p>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
+
