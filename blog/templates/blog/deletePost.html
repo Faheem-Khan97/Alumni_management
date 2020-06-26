@@ -1,0 +1,27 @@
+{% extends 'UserModule/base.html' %}
+
+{% load static %}
+{% block content%}
+<div class="container">
+
+
+
+    <h4 class = "text-danger font-weight-light">Are you sure to delete your Post?</h4>
+    <h5 class = "text-secondary" >Title of your post is -    {{post.title}}</h5>
+    <h5 class = "text-secondary">Date Posted : {{post.date_posted}}</h5>
+    <h5 class = "text-secondary">Last edited on : {{post.last_modified}}</h5>
+
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <a class="btn btn-sm btn-info m-2" href="{% url 'blog-home' %}">Cancel</a>
+        <button type="submit" class="btn btn-sm btn-danger m-2">Sure</button>
+
+    </form>
+
+</div>
+{%endblock%}
+
+
+
+    

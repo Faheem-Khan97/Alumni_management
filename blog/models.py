@@ -27,7 +27,3 @@ class Files_Of_posts(models.Model):
         return str(self.blogpost.id)
 
 
-    def __str__(self):
-        return str(self.blogpost.author.email)
-
-

@@ -24,9 +24,10 @@
 
 
 <body >
-{% include 'UserModule/navbar.html' %}
+{%block content %}
 <div class="container-fluid">
-    {%block content %}
+    
+    {% include 'UserModule/navbar.html' %}
 
     {% endblock %}
 </div>

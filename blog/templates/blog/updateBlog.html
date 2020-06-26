@@ -1,0 +1,61 @@
+{% extends 'UserModule/base.html' %}
+
+{% load static %}
+{% block content%}
+<link rel="stylesheet" href="{% static '/css/updateblog.css'%}">
+
+<div class="container text-left form-body ">
+    <div class="row ">
+        <div class="col-md-6  ">
+            <form action="" method="post" class="note-form" enctype="multipart/form-data">
+                {%csrf_token%}
+              <div class="p-2" >{{form.title}}</div> 
+              <div class="p-2">{{form.body}}</div> 
+              <div class="p-2">{{form.files}}</div> 
+              
+
+
+            
+
+            
+                <button type="submit" class="btn btn-sm btn-success ">Save Post </button>
+            </form>
+            <p class="text-light" >{{form.errors}} </p>
+        </div>
+
+        <div class="col-md-6 image-body px-1">
+        {% if post_files%}
+            
+            {% for f in post_files %}
+                <div class="row p-2 ">
+                    
+
+
+
+                        <div class="col-9 md-10 ">
+                            <img class="post-img "  src="{{f.files.url}}" alt="">
+                        </div>
+                        <div class="col-3 md-2 text-right"> 
+                            <a class = "btn btn-outline-warning btn-sm  my-2" href="{% url 'deleteFile' f.id %}">Delete</a>
+                        </div>
+
+                 
+                   
+                </div>
+
+                <hr>
+             {%endfor%}
+           
+        {% endif %}
+        </div>
+
+
+
+
+    </div>
+</div>
+<script>
+    console.log("jaavscript")
+</script>
+
+{% endblock %}

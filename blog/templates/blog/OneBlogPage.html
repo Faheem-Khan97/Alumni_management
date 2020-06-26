@@ -1,0 +1,87 @@
+
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/blog-home.css'%}">
+</head>
+<div class="container text-center py-2">
+
+    <div class="row">
+
+
+        <div class="col-md-3 sidemenu">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accm dolores fuga ut dolorem? Labore, facilis.</p>
+        </div>
+
+
+        <div class="col-md-6 post-body">
+            <div class="row py-1">
+
+                <div class="col-1 pic">
+                    {%if post.author.profile.profile_pic%}
+                        <img src="{{post.author.profile.profile_pic.url}}" alt="" class="profile-picture my-3 ">
+                    
+                    {%else%}
+                        <img src="{% static '/images/user.png'%}" alt="" class="profile-picture my-3 ">
+
+                    {% endif %}
+
+                </div>
+
+
+
+
+                <div class="col-11 content">
+
+
+                    <div class="row p-3">
+                                
+                        <div class="col-4 text-right  font-weight-bold">{{post.author.full_name}}</div>
+                        <div class="col-4 text-left"> {{post.last_modified|date:"F d, Y" }}</div>
+                        {%if request.user == post.author %}
+                        <div class="col-2 text-right mb-2"><a class = "btn btn-outline-info btn-sm text-secondary post-link" href="{% url 'updateBlog' post.id %}">Edit Post</a></div>
+                        <div class="col-2 text-right mb-2"><a class = "btn btn-outline-info btn-sm text-secondary post-link" href="{% url 'deleteBlog' post.id %}">Delete</a></div>
+
+
+                        {%endif%}
+                    </div>
+
+                    <p class="font-weight-bold text-info pt-2" >{{post.title}}</p>
+                   
+                    <p class="post-text text-left  mx-1">{{post.body}}</p>
+                        <div class="height">
+                            {% for image in post.files_of_posts_set.all%}
+                            
+                            {%if image.files%}
+                                <a href="{{image.files.url}}"><img class="post-img" src="{{image.files.url}}" alt=""></a>
+                
+                            {%endif%}
+                
+                            {%endfor%}
+                        </div>
+                    </div>
+                            
+
+            </div >
+        </div>
+
+        <div class="col-md-3 friendlist">
+            <p>Lorem ipsum, dolor sit amet co architecto culpa perspiciatis eveniet qui?</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+

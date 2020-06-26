@@ -1,0 +1,22 @@
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    width: 85%;
+    height: 150px;
+}
+.form-body{
+    border: 1px solid greenyellow;
+}
+
+.btn-success{
+    position: relative;
+    bottom: 353px;
+    left: 270px;
+}
+.delete{
+    
+    position: relative;
+    left: 19px;
+    top: 5px;
+}

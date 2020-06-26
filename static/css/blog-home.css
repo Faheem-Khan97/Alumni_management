@@ -1,11 +1,12 @@
 
-.profile-pic{
-
-max-width: 65px;
-max-height: 65px;
+.profile-picture{
+    min-width: 60px;
+    min-height: 62px;
+max-width: 60px;
+max-height: 85px;
 position: relative;
-right: 4px;
-bottom: 12px;
+right: 5px;
+bottom: 14px;
 border-radius: 50%;
  
  
@@ -27,7 +28,7 @@ img{
     height: fit-content;
 }
 .friendlist{
-    border: 2px solid rgb(232, 248, 11);
+    border: 2px solid rgb(15, 5, 68);
     height: 50%;
 
 }
@@ -37,7 +38,7 @@ img{
     top: 4px;
 }
 #date{
-    font-weight: 50px;
+    font-weight: 30px;
 }
 .post-img{
 margin: 0;
@@ -58,3 +59,11 @@ a:hover{
 color: rgb(10, 250, 190);
 }
 
+.post-link{
+    text-decoration: none;
+
+
+}
+.post-link:hover{
+    text-decoration: none;
+}

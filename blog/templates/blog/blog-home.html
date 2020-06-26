@@ -44,10 +44,10 @@
 
                     <div class="col-sm-1 pic">
                         {%if post.author.profile.profile_pic%}
-                            <img src="{{post.author.profile.profile_pic.url}}" alt="" class="profile-pic  ">
+                            <img src="{{post.author.profile.profile_pic.url}}" alt="" class="profile-picture  ">
                            
                         {%else%}
-                            <img src="{% static '/images/user.png'%}" alt="" class="profile-pic  ">
+                            <img src="{% static '/images/user.png'%}" alt="" class="profile-picture  ">
             
                         {% endif %}
 
@@ -56,10 +56,10 @@
 
                     <div class="col-sm-11 content">
                        
-                            <p class = " name text-center"><strong >{{post.author.full_name}}</strong> . <span id = "date"> {{post.last_modified}}</span></p> 
+                            <p class = " name text-center"><strong >{{post.author.full_name}}</strong> . <span id = "date"> {{post.last_modified|date:"F d, Y"}}</span></p> 
 
                             <p class="font-weight-bold text-info pt-2" >{{post.title}}</p>
-                            <p class="post-text text-left  mx-1">{{post.body}}</p>
+                            <a class = "post-link" href="{% url 'OneBlog' post.id %}"><p class="post-text text-left  mx-1">{{post.body}}</p></a>
                                 <div class="height">
                                     {% for image in post.files_of_posts_set.all%}
                                     

@@ -15,5 +15,5 @@ class BlogPostForm(forms.ModelForm):
 
 class BlogPostWithFilesForm(BlogPostForm):
 
-    files = forms.FileField(widget = forms.ClearableFileInput(attrs = {'multiple' : True}))
+    files = forms.FileField(required = False, widget = forms.ClearableFileInput(attrs = {'multiple' : True}))
     fields = BlogPostForm.Meta.fields + ['files',]

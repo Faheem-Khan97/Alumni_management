@@ -1,0 +1,20 @@
+{% extends 'UserModule/base.html' %}
+
+{% load static %}
+
+{% block content%}
+<style>
+    img{
+        height: 200px;
+        width: 285px;
+    }
+</style>
+    <img class="" src="{{File.files.url}}" alt="" srcset="">
+   <form action="" method="post" class="m-2">
+{%csrf_token%}
+    <a class="btn btn-sm btn-info m-2" href="{% url 'blog-home' %}">Cancel</a>
+    <button type="submit" class="btn btn-sm btn-danger m-2">Sure</button>
+
+</form>
+    {% endblock %}
+
