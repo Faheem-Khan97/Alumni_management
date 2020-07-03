@@ -112,7 +112,7 @@ class Profile(models.Model):
     description = models.CharField(max_length = 120, null = True, blank = True)
     working = models.CharField(max_length = 120, null = True, blank = True)
     work_history = models.CharField(max_length = 120, null = True, blank = True)
-    profile_pic = models.ImageField(default = 'profile1.png', null = True, blank = True)
+    profile_pic = models.ImageField(default = 'user.png', null = True, blank = True)
 
 
     def __str__(self):

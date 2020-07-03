@@ -11,6 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 
+    <script src="https://use.fontawesome.com/0625171541.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/css/blog-home.css'%}">
 </head>
@@ -20,16 +21,20 @@
     <div class="row">
 
 
-        <div class="col-md-3 sidemenu">
-            <p>Lorem, ipsum dolor sique debitis nemo! Eveniet non dolorem quod delectus.</p>
+        <div class="col-1 col-sm-2 col-md-3 sidemenu text-left">
+            <a class="links text-left" href="{%url 'blog-home'%}"><i class="fa fa-home mx-3"></i><span class="link-text ">Home</span>   </a>
+            
+            <a class="links" href="{%url 'blog-home'%}"> <i id="notify" class="fas fa-bell mx-3"></i><span class="link-text">Notifications</span></a>
+            <a class="links" href=""> <i class="fas fa-envelope mx-3 "></i><span class="link-text ">Messages</span>  </a>
+            <a class="links" href=""><i class="fas fa-user-circle mx-3"></i><span class="link-text ">Profile</span>  </a>
         </div>
 
         
-        <div class="col-md-6 post-body mx-0.5 ">
+        <div class="col-7 col-sm-8 col-md-6 post-body mx-0.5 ">
 
             <div class="text-center">
                 <p>What is happening..</p>
-                <a href="{%url 'createBlog'%}">Share with Your Friends</a>
+                <a class="share" href="{%url 'createBlog'%}">Post Here</a>
             </div>
 
             <hr>
@@ -42,7 +47,7 @@
 
                 <div class="row">
 
-                    <div class="col-sm-1 pic">
+                    <div class="col-2 col-sm-2 col-md-2 pic">
                         {%if post.author.profile.profile_pic%}
                             <img src="{{post.author.profile.profile_pic.url}}" alt="" class="profile-picture  ">
                            
@@ -54,12 +59,16 @@
                     </div>
 
 
-                    <div class="col-sm-11 content">
+                    <div class="col-10 col-sm-10 col-md-10 content  ">
                        
-                            <p class = " name text-center"><strong >{{post.author.full_name}}</strong> . <span id = "date"> {{post.last_modified|date:"F d, Y"}}</span></p> 
+                            <div class = " name p-1"><strong class= " mb-5">{{post.author.full_name}}</strong> . <span id = "date "> {{post.last_modified|date:"F d, Y"}}</span></div> 
 
-                            <p class="font-weight-bold text-info pt-2" >{{post.title}}</p>
-                            <a class = "post-link" href="{% url 'OneBlog' post.id %}"><p class="post-text text-left  mx-1">{{post.body}}</p></a>
+                            
+                            <a class = " post-text text-left ml-4" href="{% url 'OneBlog' post.id %}">
+
+                                {%if post.title%}<p class=" text-info pt-2 text-center" >{{post.title}}</p>{% endif%}
+                                {{post.body|linebreaks}}
+                            </a>
                                 <div class="height">
                                     {% for image in post.files_of_posts_set.all%}
                                     
@@ -70,16 +79,49 @@
                         
                                     {%endfor%}
                                 </div>
-                                    
 
                     </div >
                 </div>
                 <hr>
 
-                {% endfor %}
+            {% endfor %}
+
+
+
+            {% if posts.has_previous %}
+                <a class = "btn btn-outline-info btn-small" href="?page=1">First</a>
+                <a class = "btn btn-outline-info btn-small" href="?page={{posts.previous_page_number}}">Previous</a>
+            {% endif %}
+
+
+
+            {% for num in posts.paginator.page_range %}
+
+                {% if posts.number == num %}
+
+                    <a class="btn btn-secondary" href="?page={{num}}">{{num}}</a>
+
+                    {% elif num > posts.number|add:'-3' and num < posts.number|add:'3' %}
+                    <a class="btn btn-outline-info" href="?page={{num}}">{{num}}</a>
+
+                {% endif %}
+            {% endfor %}
+ 
+ 
+            {% if posts.has_next %}
+            <a class = "btn btn-outline-info btn-small" href="?page={{posts.next_page_number}}">Next</a>
+            <a class = "btn btn-outline-info btn-small" href="?page={{posts.paginator.num_pages}}">Last</a>
+        {% endif %}
+
+
+
+
+
+        
+
         </div>
 
-        <div class="col-md-3 friendlist">
+        <div class=" col-3 col-sm-2 col-md-3 friendlist">
             <p>Lorem, ipsum dolor sique debitis nemo! Eveniet non dolorem quod delectus.</p>
         </div>
 
@@ -87,5 +129,6 @@
 
 </div>
 </body>
+
 </html>
 

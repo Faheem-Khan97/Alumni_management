@@ -15,7 +15,7 @@ class BlogPost(models.Model):
 
 
     def __str__(self):
-        return self.title
+        return str(self.author)
 
 
 class Files_Of_posts(models.Model):
@@ -27,3 +27,13 @@ class Files_Of_posts(models.Model):
         return str(self.blogpost.id)
 
 
+class Comment(models.Model):
+    comment_by = models.ForeignKey(User, null = True, on_delete = models.CASCADE)
+    blogpost = models.ForeignKey(BlogPost, on_delete = models.CASCADE)
+    comment = models.CharField(blank = True, null = True , max_length = 180 )
+
+    
+    def __str__(self):
+        return str(self.blogpost.id)
+
+    

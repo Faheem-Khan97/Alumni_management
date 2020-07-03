@@ -13,21 +13,31 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/css/blog-home.css'%}">
+
+    <script src="https://use.fontawesome.com/0625171541.js"></script>
+
 </head>
 <div class="container text-center py-2">
 
     <div class="row">
 
 
-        <div class="col-md-3 sidemenu">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accm dolores fuga ut dolorem? Labore, facilis.</p>
+        <div class="col-1 col-md-3 sidemenu text-left">
+            <a class="links text-left" href="{%url 'blog-home'%}"><i class="fa fa-home mx-3"></i><span class="link-text ">Home</span>   </a>
+            
+            <a class="links" href=""> <i id="notify" class="fas fa-bell mx-3"></i><span class="link-text">Notifications</span></a>
+            <a class="links" href=""> <i class="fas fa-envelope mx-3 "></i><span class="link-text ">Messages</span>  </a>
+            <a class="links" href=""><i class="fas fa-user-circle mx-3"></i><span class="link-text ">Profile</span>  </a>
+
         </div>
 
 
-        <div class="col-md-6 post-body">
-            <div class="row py-1">
+        <div class=" col-7 col-md-6 post-body">
 
-                <div class="col-1 pic">
+
+            <div class="row mt-1">
+
+                <div class="col-2 pic">
                     {%if post.author.profile.profile_pic%}
                         <img src="{{post.author.profile.profile_pic.url}}" alt="" class="profile-picture my-3 ">
                     
@@ -40,47 +50,148 @@
 
 
 
-
-                <div class="col-11 content">
+                <div class="col-10 content">
 
 
                     <div class="row p-3">
                                 
-                        <div class="col-4 text-right  font-weight-bold">{{post.author.full_name}}</div>
-                        <div class="col-4 text-left"> {{post.last_modified|date:"F d, Y" }}</div>
-                        {%if request.user == post.author %}
-                        <div class="col-2 text-right mb-2"><a class = "btn btn-outline-info btn-sm text-secondary post-link" href="{% url 'updateBlog' post.id %}">Edit Post</a></div>
-                        <div class="col-2 text-right mb-2"><a class = "btn btn-outline-info btn-sm text-secondary post-link" href="{% url 'deleteBlog' post.id %}">Delete</a></div>
+                        <div class="col-6 text-left font-weight-bold">
+                            {{post.author.full_name}}
 
+                        </div>
+                        
+                        {%if request.user == post.author %}
+                        <div class="col-3 text-right mb-2">
+                            <a class = "btn btn-outline-info btn-sm text-secondary post-link-edit" href="{% url 'updateBlog' post.id %}">Edit Post</a>
+                        </div>
+
+                        <div class="col-3 text-right mb-2">
+                            
+                            <a class = "btn btn-outline-info btn-sm text-secondary post-link-delete" href="{% url 'deleteBlog' post.id %}">Delete</a>
+                        
+                        </div>
 
                         {%endif%}
                     </div>
+                    
+                {% if post.title%}
+                <div class="row text-center">
+                    <p class="font-weight-bold text-info ml-5" >{{post.title}}</p>
+                </div>
+                {% endif %}
 
-                    <p class="font-weight-bold text-info pt-2" >{{post.title}}</p>
                    
-                    <p class="post-text text-left  mx-1">{{post.body}}</p>
-                        <div class="height">
-                            {% for image in post.files_of_posts_set.all%}
-                            
-                            {%if image.files%}
-                                <a href="{{image.files.url}}"><img class="post-img" src="{{image.files.url}}" alt=""></a>
-                
-                            {%endif%}
-                
-                            {%endfor%}
-                        </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+
+
+                <div class="col">
+
+
+                    <div class="post-text text-left  mx-1">
+                        {{post.body|linebreaks}}
+
                     </div>
-                            
 
-            </div >
+                
+                    
+                    <div class="height">
+                        {% for image in post.files_of_posts_set.all%}
+                        
+                        {%if image.files%}
+                            <a href="{{image.files.url}}"><img class="post-img" src="{{image.files.url}}" alt=""></a>
+            
+                        {%endif%}
+            
+                        {%endfor%}
+
+                    </div>
+
+
+
+                    
+                    <div class="row text-left text-muted mt-3 ml-2 font-weight-bold display-6 lead"> 
+                        Orignally posted on: {{post.date_posted }}
+
+                    </div>
+
+                </div>
+            </div>    
+                        
+            <hr>
+
+                                
+            
+            <div class="row container mt-2 comment-section" >
+                <div class="col-2 col-sm-2">
+                    <img class = "h-59 w-59 comment-image" src=" {{request.user.profile.profile_pic.url}}" alt="" srcset="">
+                </div>
+
+                <div class="col-8 col-sm-8 mb-10">
+                    <form action="" method="post" autocomplete="off" >
+                        {% csrf_token%}
+                    <div class=" form-group text-right">
+                        {{form.comment}}
+                    </div>
+                </div>
+
+                <div class="col-2 col-sm-2 text-left mt-1">
+                    <button class ="btn btn-outline-info btn-sm text-muted" type="submit">Comment </button>
+
+                </div>
+                    
+                </form>
+                        
+            </div>
+            <hr>  
+            {%if comments%}
+                <p class="text-left text-info ml-2 font-weight-bold">{{NoOfComments}} Comments</p> 
+                <hr>
+                    {%for com in comments%}
+                    <div class="row">
+                        <div class="col-2  text-right">   
+                                <img class = "h-59 w-59 comment-image" src="{{com.comment_by.profile.profile_pic.url}}" alt="">
+                        </div>
+                        
+                        <div class="col-10 text-left comment-body">
+                            <div class="comment-name">{{com.comment_by.full_name}}</div>
+                            {{com.comment|linebreaks}}
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    {%endfor%}
+            {%endif%}
+                              
+        </div>
+                        
+        
+               
+
+
+        <div class=" col-3 col-md-3 friendlist">
+            <p>This section is for suggesting people to follow.</p>
         </div>
 
-        <div class="col-md-3 friendlist">
-            <p>Lorem ipsum, dolor sit amet co architecto culpa perspiciatis eveniet qui?</p>
-        </div>
 
     </div>
 
+    <script>
+        var element = document.getElementsByTagName('input');
+        
+        
+        for(var field in element)
+        {
+          element[field].className += 'form-control';
+        }
+        
+        </script>
 </div>
 
 

@@ -1,9 +1,9 @@
 
 .profile-picture{
-    min-width: 60px;
-    min-height: 62px;
-max-width: 60px;
-max-height: 85px;
+    min-width: 52px;
+    min-height: 57px;
+max-width: 54px;
+max-height: 75px;
 position: relative;
 right: 5px;
 bottom: 14px;
@@ -23,7 +23,6 @@ img{
    
 }
 .sidemenu{
-    border: 2px solid rgb(170, 128, 123);
 
     height: fit-content;
 }
@@ -34,9 +33,28 @@ img{
 }
 .name{
     position: relative;
-    right: 70px;
-    top: 4px;
+    right: 130px;
+    bottom: 1px;
 }
+
+
+@media only screen and (max-width: 1200px) {
+    body {
+      background-color: rgb(191, 203, 207);
+    }
+    .name{
+        position: relative;
+        right: 5px;
+    }
+
+    .comment-image{
+        position: relative;
+        right: 25px;
+    }
+  }
+
+
+
 #date{
     font-weight: 30px;
 }
@@ -49,21 +67,111 @@ height: 150px;
 .post-text{
    font-size: 18px;
    color: rgb(99, 84, 99);
+   text-decoration: none!important;
+   margin-left: 4px;
 
     
 }
-a{
+.post-text:hover{
+    text-decoration: none;
+    color: rgb(99, 84, 99);
+}
+.share{
     text-decoration: underline;
 }
-a:hover{
-color: rgb(10, 250, 190);
+.share:hover{
+    color: aqua;
 }
 
-.post-link{
-    text-decoration: none;
 
+
+.text-muted{
+    font-size: 11px;
+    margin-top: 5px;
+}
+.form-group input {
+    height: 32px;
+    width: 100%; 
+    border-radius: 10px;
+    margin-top: 8px;
+    margin-left: 4px;
+  }
+
+  .comment-image{
+      border-radius: 40px;
+      width: 38px;
+      height: 38px;
+      margin-left: 20px;
+      margin-top: 5px;
+
+  }
+
+.comment-body{
+      background-color: rgb(248, 249, 252);
+      border-radius: 5px;
+  }
+.comment-name{
+font-size: 13px;
+font-weight: bold;
+font-family: sans-serif;
+}
+
+
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+.links{
+    display: block;
+    text-decoration: none;
+    color: rgb(3, 0, 0);
+    margin: 2px;
+    font-weight: 500;
+    font-size: 18px;
+}
+.links:hover{
+    text-decoration: none;
+    color: black;
+}
+@media only screen and (max-width: 768px) 
+{
+    .link-text{
+        display: none;
+    }
+    i{
+      position: relative;
+      right: 31px;
+    }
+    .text-info{
+        position: relative;
+        right: 28px;
+    }
+.name{
+    position: relative;
+    
+}
+.post-link-edit{
+    position: relative;
+    right: 30px;
+    bottom: 14px;
+}
+.post-link-delete{
+    position: relative;
+    right: 5px;
+    bottom: 14px;
+}
 
 }
-.post-link:hover{
-    text-decoration: none;
+.fas{
+    color:rgb(31, 184, 184);
+      font-size: 24px;
+    
+  }
+
+
+  i.fa.fa-home {
+    color:rgb(68, 212, 212);
+
+    font-size: 26px;
+
 }
