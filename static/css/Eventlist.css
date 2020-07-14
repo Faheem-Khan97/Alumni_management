@@ -1,0 +1,26 @@
+.content{
+    border: 1px solid rgb(188, 233, 225);
+}
+
+.event-body{
+    position: relative;
+    left: 6px;
+    border-right: 1px solid rgb(51, 165, 241);
+}
+
+.mb-3{
+    position: relative;
+    top: 3vh;
+}
+
+.add-btn
+{
+    position: relative;
+    margin-left: 120px;
+    top: 10px;
+    bottom: 3px;
+}
+body{
+
+    background-color: rgb(255, 255, 255);
+}

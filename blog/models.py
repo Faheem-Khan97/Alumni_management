@@ -37,3 +37,16 @@ class Comment(models.Model):
         return str(self.blogpost.id)
 
     
+class Event(models.Model):
+    created_by  = models.ForeignKey(User, on_delete = models.CASCADE)
+    event_name = models.CharField(max_length = 100, null = True)
+    event_details = models.TextField(blank = True, null= True)
+    venue = models.CharField(max_length = 120, null = True)
+    event_date = models.DateTimeField()
+    date_created = models.DateTimeField(auto_now_add = True)
+    last_edited = models.DateTimeField(auto_now = True)
+
+
+
+    def __str__(self):
+        return str(self.event_name)

@@ -9,3 +9,50 @@
     background-color: #154963;
   
   }
+  .wrap
+  {
+    width: 112px;
+    height: 112px;
+    border: 6px solid white;
+    border-radius: 55px;
+    position: relative;
+    
+  }
+ .user_profile_pic{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 1px;
+    top: 0.5px;
+    right: 0.5px;
+    border-radius: 48px;
+    
+   
+  }
+  .user-name{
+    font-weight: bolder;
+    font-size: 22px;
+  }
+
+  .count{
+    font-size: 14px!important;
+
+    color: cornsilk!important;
+
+  }
+  .name-img-wrap{
+    background-color: rgb(82, 82, 248);
+  }
+  .fa-map-marker {
+    font-size: 20px;
+    font-weight: lighter;
+    opacity: 1!important;
+  }
+  .boundary{
+    height: 2vh;
+    border: 1px solid rgb(243, 241, 241);
+    background-color: rgb(226, 224, 224);
+
+    margin-bottom: 6px;
+
+  }

@@ -1,14 +1,55 @@
 {% include 'UserModule/navbar.html' %}
 
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+
 </head>
 <body>
-    <h1>Home Page</h1>
+
+    <div id="frontSlider" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#frontSlider" data-slide-to="0" class="active"></li>
+          <li data-target="#frontSlider" data-slide-to="1"></li>
+        
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{%static './images/clg_nature.jpeg'%}" alt="Los Angeles" >
+            <div class="carousel-caption">
+              
+              <p class="your_name font-weight-bold text-warning  " > Welcome <span >{{request.user.get_short_name}}!</span> </p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="{%static './images/clgaward.jpg'%}"  alt="Chicago" >
+            <div class="carousel-caption btn-wrap">
+             
+              <button class="btn btn-outline-success btn-medium "> 
+                <h5>Latest Added Event</h5>  
+                <h3>{{event.event_name}}</h3>
+                <p>{{event.event_date}}</p>
+              </button>
+            </div>   
+          </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#frontSlider" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#frontSlider" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+      
+
+
 </body>
 </html>

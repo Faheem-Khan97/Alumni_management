@@ -16,36 +16,42 @@
     <link rel="stylesheet" href="{% static '/css/blog-home.css'%}">
 </head>
 
-<div class="container text-center ">
+<div class="container ">
 
     <div class="row">
 
 
-        <div class="col-1 col-sm-2 col-md-3 sidemenu text-left">
-            <a class="links text-left" href="{%url 'blog-home'%}"><i class="fa fa-home mx-3"></i><span class="link-text ">Home</span>   </a>
-            
-            <a class="links" href="{%url 'blog-home'%}"> <i id="notify" class="fas fa-bell mx-3"></i><span class="link-text">Notifications</span></a>
-            <a class="links" href=""> <i class="fas fa-envelope mx-3 "></i><span class="link-text ">Messages</span>  </a>
-            <a class="links" href=""><i class="fas fa-user-circle mx-3"></i><span class="link-text ">Profile</span>  </a>
+        <div class="col-2 col-sm-2 col-md-3 sidemenu py-0 text-left">
+            <a class="links text-left" href="{%url 'home'%}"><i class="fa fa-home mx-3"></i><span class="link-text my-1 ">Home</span>   </a>
+            <a class="links text-left" href="{%url 'blog-home'%}"><i class="fa fa-pencil-square-o mx-3 fas" ></i><span class="link-text ">Blog</span>  </a>
+
+            <a class="links text-left" href="{%url 'eventList'%}"><i class="fa fa-meetup mx-3 fas" ></i><span class="link-text ">Events</span>  </a>
+
+            <a class="links" href="{%url 'blog-home'%}"> <i id="notify" class="fa fa-bell-o fas mx-3"></i><span class="link-text">Notifications</span></a>
+            <a class="links" href=""> <i class="fa fa-envelope-o fas mx-3 "></i><span class="link-text ">Messages</span>  </a>
+            <a class="links" href="{% url 'User_Profile' request.user.id %}"><i class="fas fa fa-user-o mx-3"></i><span class="link-text ">Profile</span>  </a>
+            <a class="links" href="{% url 'User_Profile_settings'  %}"><i class="fa fa-cogs mx-3 fas" ></i><span class="link-text ">Settings</span>  </a>
         </div>
 
         
-        <div class="col-7 col-sm-8 col-md-6 post-body mx-0.5 ">
+        <div class="col-10 col-sm-8 col-md-6 post-body mx-0.5 "> 
+
+            {% block content %}
 
             <div class="text-center">
                 <p>What is happening..</p>
                 <a class="share" href="{%url 'createBlog'%}">Post Here</a>
             </div>
-
+            
             <hr>
-
+            {% endblock %}
 
 
 
             {% for post in posts %}
 
 
-                <div class="row">
+                <div class="row whole-post">
 
                     <div class="col-2 col-sm-2 col-md-2 pic">
                         {%if post.author.profile.profile_pic%}
@@ -66,7 +72,8 @@
                             
                             <a class = " post-text text-left ml-4" href="{% url 'OneBlog' post.id %}">
 
-                                {%if post.title%}<p class=" text-info pt-2 text-center" >{{post.title}}</p>{% endif%}
+                                {%if post.title%}<p class=" text-info pt-2 text-center" >{{post.title}}</p>
+                                {% endif%}
                                 {{post.body|linebreaks}}
                             </a>
                                 <div class="height">
@@ -82,19 +89,19 @@
 
                     </div >
                 </div>
-                <hr>
+                
 
             {% endfor %}
 
 
-
+          
             {% if posts.has_previous %}
                 <a class = "btn btn-outline-info btn-small" href="?page=1">First</a>
                 <a class = "btn btn-outline-info btn-small" href="?page={{posts.previous_page_number}}">Previous</a>
             {% endif %}
 
 
-
+          
             {% for num in posts.paginator.page_range %}
 
                 {% if posts.number == num %}
@@ -112,6 +119,9 @@
             <a class = "btn btn-outline-info btn-small" href="?page={{posts.next_page_number}}">Next</a>
             <a class = "btn btn-outline-info btn-small" href="?page={{posts.paginator.num_pages}}">Last</a>
         {% endif %}
+        
+
+
 
 
 
@@ -121,7 +131,7 @@
 
         </div>
 
-        <div class=" col-3 col-sm-2 col-md-3 friendlist">
+        <div class=" col-sm-2 col-md-3 friendlist">
             <p>Lorem, ipsum dolor sique debitis nemo! Eveniet non dolorem quod delectus.</p>
         </div>
 

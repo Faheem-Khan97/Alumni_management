@@ -12,34 +12,37 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
+ 
     <link rel="stylesheet" href="{% static '/css/blog-home.css'%}">
 
     <script src="https://use.fontawesome.com/0625171541.js"></script>
 
 </head>
-<div class="container text-center py-2">
+<div class="container text-center pb-2">
 
     <div class="row">
 
 
-        <div class="col-1 col-md-3 sidemenu text-left">
-            <a class="links text-left" href="{%url 'blog-home'%}"><i class="fa fa-home mx-3"></i><span class="link-text ">Home</span>   </a>
-            
-            <a class="links" href=""> <i id="notify" class="fas fa-bell mx-3"></i><span class="link-text">Notifications</span></a>
-            <a class="links" href=""> <i class="fas fa-envelope mx-3 "></i><span class="link-text ">Messages</span>  </a>
-            <a class="links" href=""><i class="fas fa-user-circle mx-3"></i><span class="link-text ">Profile</span>  </a>
+        <div class="col-2 col-md-3 sidemenu text-left">
+            <a class="links text-left" href="{%url 'home'%}"><i class="fa fa-home mx-3"></i><span class="link-text ">Home</span>   </a>
+            <a class="links text-left" href="{%url 'blog-home'%}"><i class="fa fa-pencil-square-o mx-3 fas" ></i><span class="link-text ">Blog</span>  </a>
 
+            <a class="links text-left" href="{%url 'eventList'%}"><i class="fa fa-meetup mx-3 fas" ></i><span class="link-text ">Events</span>  </a>
+
+            <a class="links" href=""> <i id="notify" class="fa fa-bell-o fas mx-3"></i><span class="link-text">Notifications</span></a>
+            <a class="links" href=""> <i class="fa fa-envelope-o fas mx-3 "></i><span class="link-text ">Messages</span>  </a>
+            <a class="links" href=""><i class="fas fa fa-user-o mx-3"></i><span class="link-text " >Profile</span>  </a>
+            <a class="links" href="{% url 'User_Profile_settings'  %}"><i class="fa fa-cogs mx-3 fas" ></i><span class="link-text ">Settings</span>  </a>
         </div>
+        
 
-
-        <div class=" col-7 col-md-6 post-body">
-
-
-            <div class="row mt-1">
+        <div class=" col-10 col-md-6 post-body">
+            <div class="row mt-1 ">
 
                 <div class="col-2 pic">
                     {%if post.author.profile.profile_pic%}
-                        <img src="{{post.author.profile.profile_pic.url}}" alt="" class="profile-picture my-3 ">
+                        <img src="{{post.author.profile.profile_pic.url}}" alt="" class="profile-picture mt-1 ">
                     
                     {%else%}
                         <img src="{% static '/images/user.png'%}" alt="" class="profile-picture my-3 ">
@@ -124,16 +127,16 @@
                 </div>
             </div>    
                         
-            <hr>
+           
 
                                 
             
-            <div class="row container mt-2 comment-section" >
+            <div class="row container mt-2 comment-section whole-post" >
                 <div class="col-2 col-sm-2">
                     <img class = "h-59 w-59 comment-image" src=" {{request.user.profile.profile_pic.url}}" alt="" srcset="">
                 </div>
 
-                <div class="col-8 col-sm-8 mb-10">
+                <div class="col-8 col-sm-8 mb-10 ">
                     <form action="" method="post" autocomplete="off" >
                         {% csrf_token%}
                     <div class=" form-group text-right">
@@ -149,9 +152,9 @@
                 </form>
                         
             </div>
-            <hr>  
+           
             {%if comments%}
-                <p class="text-left text-info ml-2 font-weight-bold">{{NoOfComments}} Comments</p> 
+                <p class="text-left text-info ml-2 font-weight-bold whole-post">{{NoOfComments}} Comments</p> 
                 <hr>
                     {%for com in comments%}
                     <div class="row">
@@ -175,7 +178,7 @@
                
 
 
-        <div class=" col-3 col-md-3 friendlist">
+        <div class=" col-md-3 friendlist">
             <p>This section is for suggesting people to follow.</p>
         </div>
 

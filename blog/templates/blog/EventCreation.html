@@ -1,0 +1,18 @@
+{% extends 'UserModule/base.html' %}
+
+
+{%block content%}
+<div class="container ">
+
+<p class="text-danger">Add an event</p>
+<hr class="mb-2">
+<form method="POST" action="">
+{%csrf_token%}
+    {{form.as_p}}
+
+    <button class ="btn btn-small btn-outline-success" type="submit">Add Event</button>
+</form>
+
+<div class="row">{{form.errors}}</div>
+</div>
+{% endblock %}

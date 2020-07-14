@@ -105,13 +105,29 @@ class User(AbstractBaseUser):
 
 
 class Profile(models.Model):
+
+    FACULTY_CHOICES = [
+
+        ('FET','Faculty of Engineering and Technology'),
+        ('Agriculture Faculty','Faculty of Agriculture'),
+        ('Science Faculty','Faculty of Science and Environment'),
+        ('Arts Facults','Faculty of Arts'),
+        ('Management Faculty','Faculty of Rural Development and Business Management'),
+
+    ]
+
+
+
+
     user = models.OneToOneField(User, on_delete = models.CASCADE, blank = True, null = True)
+    faculty = models.CharField(max_length = 60, null = True, choices = FACULTY_CHOICES, default = 'FET')
+    course = models.CharField(max_length = 100, null = True)
     passout_year = models.IntegerField(null = True, blank = True)
-    home_city = models.CharField(max_length = 120, null = True, blank = True)
-    current_city = models.CharField(max_length = 120, null = True, blank = True)
-    description = models.CharField(max_length = 120, null = True, blank = True)
-    working = models.CharField(max_length = 120, null = True, blank = True)
-    work_history = models.CharField(max_length = 120, null = True, blank = True)
+    home_city = models.CharField(max_length = 160, null = True, blank = True)
+    current_city = models.CharField(max_length = 160, null = True, blank = True)
+    description = models.CharField(max_length = 160, null = True, blank = True)
+    working = models.CharField(max_length = 160, null = True, blank = True)
+    work_history = models.CharField(max_length = 160, null = True, blank = True)
     profile_pic = models.ImageField(default = 'user.png', null = True, blank = True)
 
 

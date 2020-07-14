@@ -1,0 +1,44 @@
+{% extends 'blog/blog-home.html' %}
+
+{% load static %}
+
+{%block content %}
+<link rel="stylesheet" href="{% static '/css/userprofile.css'%}">
+<div class=" row text-left name-img-wrap">
+
+    <div class="ml-2">
+        <div class="user-name text-white">{{user.full_name}}</div>
+
+        <div class="text-muted count text-white">{{count}} Posts</div>
+    
+    
+    
+        <div class="wrap"><img class="user_profile_pic" src="{{user.profile.profile_pic.url}}" alt=""></div>
+
+
+        <div class="user-name text-white">{{user.full_name}}</div>
+        <div class="text-white">{{user.profile.working}}{%if user.profile.work_history%} | Formerly, {{user.profile.work_history}} {%endif%}</div>
+
+        <div class="text-white"><i class="fa fa-map-marker mr-2"></i>{{user.profile.current_city}}    
+            <i class="fa fa-calendar ml-2 mr-1 " ></i>   Joined {{user.join_date|date:'F Y'}}</div>
+
+        <div class="text-white"><i class="fa fa-graduation-cap mr-2" ></i>{{user.profile.course}}    
+           <span class="ml-3 font-weight-light">Passout Batch - {{user.profile.passout_year}} </span> </div>
+
+
+
+
+
+
+    </div>
+
+
+
+</div>
+
+<div class="row boundary">
+    
+
+</div>
+
+{%endblock%}

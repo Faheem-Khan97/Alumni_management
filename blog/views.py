@@ -3,9 +3,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse
 
 from django.contrib.auth.decorators import login_required
-from .forms import BlogPostForm, BlogPostWithFilesForm, CommentForm
+from .forms import BlogPostForm, BlogPostWithFilesForm, CommentForm, EventCreationForm
 
-from .models import BlogPost, Files_Of_posts, Comment
+from .models import BlogPost, Files_Of_posts, Comment,Event
 # Create your views here.
 
 
@@ -138,3 +138,57 @@ def deleteFile(request,pk):
 
 
     return render(request, 'blog/deleteImg.html', {'File':postfile})
+
+
+
+def eventList(request):
+
+    Events = Event.objects.all().order_by('-event_date')
+
+    return render(request, 'blog/Eventlist.html', {'eventList':Events})
+
+
+
+def createEvent(request):
+  
+    form = EventCreationForm
+
+    if request.method == 'POST':
+
+        form = EventCreationForm(request.POST)
+        if form.is_valid():
+            Event =  form.save(commit = False)
+            Event.created_by = request.user
+            Event.save()
+            return redirect('eventList')
+
+    context = {'form':form}
+    return render(request, 'blog/EventCreation.html', context)
+
+
+def deleteEvent(request, pk):
+    event = Event.objects.get(id = pk)
+    if request.method == 'POST':
+        event.delete()
+        return redirect('eventList')
+
+
+
+    return render(request, 'blog/deleteEvent.html', {'event':event})
+
+def updateEvent(request, pk):
+
+    oneEvent = Event.objects.get(id= pk)
+    form = EventCreationForm(instance = oneEvent)
+
+    if request.method == 'POST':
+
+        form = EventCreationForm(request.POST, instance = oneEvent)
+        if form.is_valid():
+            oneEvent =  form.save(commit = False)
+            
+            oneEvent.save()
+            return redirect('eventList')
+   
+
+    return render(request, 'blog/updateEvent.html', {'form':form})

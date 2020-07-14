@@ -1,0 +1,16 @@
+
+
+{% load static %}
+{% block content%}
+<form action="" method="post" class="note-form" >
+    {%csrf_token%}
+    {{form.as_p}}
+
+
+
+
+    <button type="submit" class="btn btn-sm btn-success ">Save Event </button>
+</form>
+
+
+{%endblock%}

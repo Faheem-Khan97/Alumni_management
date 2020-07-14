@@ -1,39 +1,86 @@
 {% load static %}
-<style>
-  nav{ background: #076d6d;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-  }
-  #hello-msg{ font-size: 14px;
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static '/css/main.css'%}">
+  </head>
 
 
-  }
-</style>
 
-<link rel="stylesheet" href="{% static '/css/bootstrap.min.css'%}">
-<link rel="stylesheet" href="{% static '/css/main.css'%}">
-<nav class="navbar navbar-expand-lg">
-  <img id="img" src="{% static '/images/log.jpg' %}" alt=""> 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"><i class="fas fa-address-book"></i></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ">
+  <body>
+  
 
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="{% url 'home' %}">Dashboard<span class="sr-only">(current)</span></a>
+
+    <nav>
+
+
+      <div class="logo">
+        <h5 >DEVELOPED BY FAHEEM</h5>
+      </div> 
+
+
+
+      <ul class="nav-links ">
+
+        <li>
+          <a  href="{% url 'home' %}">Home</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="{% url 'blog-home' %}">Blog<span class="sr-only">(current)</span></a>
+
+
+        <li>
+          <a href="{% url 'eventList' %}">Events</a>
+        </li>
+ 
+
+        <li>
+          <a href="{% url 'blog-home' %}">Blog</a>
+        </li>
+
+        <li>
+          <a href="{% url 'User_Profile' request.user.id  %}">Profile</a>
+        </li>
+        
+        <li>
+          <a href="{% url 'blog-home' %}">Messages</a>
+        </li>
+
+                
+
+ 
+        <li>
+          <a class = 'text-white' href="{% url 'logoutUser' %}">Logout</a>
+
         </li>
 
 
       </ul>
-    </div>
-    <span class="text-white text-capitalize px-4" id="hello-msg">Hello, {{request.user.get_short_name}} </span>
-    <span><a class = 'text-warning px-2' href="{% url 'logoutUser' %}">Logout</a></span>
+
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+
+      </div>
+
+        <!--
+        <span class="text-danger text-capitalize px-4" id="hello-msg">Hello,  </span>
+        <span></span>
+        -->
+
+      </nav>
 
 
-  </nav>
-  <script src="{% static '/javascript/jquery-3.3.1.min.js'%}"></script>   
-  <script src="{% static '/javascript/bootstrap.bundle.min.js'%}"></script>
 
+      <script src="{% static './javascript/main.js' %}"></script>
+  </body>
+</html>

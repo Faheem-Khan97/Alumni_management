@@ -2,6 +2,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -13,6 +15,7 @@ from django.contrib.auth import get_user_model
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from .models import *
+from blog.models import * 
 from .decorators import authenticatedUser
 
 User = get_user_model()
@@ -23,7 +26,10 @@ User = get_user_model()
 @login_required(login_url = 'loginPage')
 def home(request):
 
-    return render(request, 'UserModule/home.html')
+    event = Event.objects.all().order_by('-last_edited')[0]
+    print(event)
+
+    return render(request, 'UserModule/home.html', {'event':event})
 
 
 @authenticatedUser
@@ -109,3 +115,35 @@ def User_Profile_settings(request):
 def logoutUser(request):
     logout(request)
     return redirect('loginPage')
+
+
+
+def User_Profile(request, pk):
+
+    user = User.objects.get(id = pk)
+    #print(user.full_name)
+    posts = BlogPost.objects.filter(author = user).order_by('-last_modified')
+
+    count = posts.count()
+
+    #print(posts)
+
+
+
+    paginator = Paginator(posts, 3)
+    num_of_pages = paginator.num_pages
+    page = request.GET.get('page') # page number
+    print(page)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        page = 1
+        print(page)
+
+        posts = paginator.page(page) # page object, containes posts of a specific page
+ 
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context = {'user':user,'posts':posts, 'count':count}
+    return render(request, 'UserModule/Userprofile.html', context)

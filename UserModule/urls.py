@@ -17,5 +17,7 @@ urlpatterns = [
 
     path('logout/', views.logoutUser, name = "logoutUser"),
     path('settings/', views.User_Profile_settings, name = "User_Profile_settings"),
+    path('profile/<int:pk>', views.User_Profile, name = "User_Profile"),
+
 
 ]
