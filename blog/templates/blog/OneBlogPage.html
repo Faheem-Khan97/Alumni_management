@@ -32,7 +32,7 @@
 
             <a class="links" href=""> <i id="notify" class="fa fa-bell-o fas mx-3"></i><span class="link-text">Notifications</span></a>
             <a class="links" href=""> <i class="fa fa-envelope-o fas mx-3 "></i><span class="link-text ">Messages</span>  </a>
-            <a class="links" href=""><i class="fas fa fa-user-o mx-3"></i><span class="link-text " >Profile</span>  </a>
+            <a class="links" href="{% url 'User_Profile' request.user.id %}"><i class="fas fa fa-user-o mx-3"></i><span class="link-text "  >Profile</span>  </a>
             <a class="links" href="{% url 'User_Profile_settings'  %}"><i class="fa fa-cogs mx-3 fas" ></i><span class="link-text ">Settings</span>  </a>
         </div>
         
@@ -65,7 +65,7 @@
                         
                         {%if request.user == post.author %}
                         <div class="col-3 text-right mb-2">
-                            <a class = "btn btn-outline-info btn-sm text-secondary post-link-edit" href="{% url 'updateBlog' post.id %}">Edit Post</a>
+                            <a class = "btn btn-outline-info btn-sm text-secondary post-link-edit" href="{% url 'updateBlog' post.id %}">Edit</a>
                         </div>
 
                         <div class="col-3 text-right mb-2">
