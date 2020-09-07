@@ -1,3 +1,10 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
 .content{
     border: 1px solid rgb(188, 233, 225);
 }
@@ -5,12 +12,13 @@
 .event-body{
     position: relative;
     left: 6px;
+    top: 0px;
     border-right: 1px solid rgb(51, 165, 241);
 }
 
 .mb-3{
     position: relative;
-    top: 3vh;
+    top: 0vh;
 }
 
 .add-btn
@@ -20,7 +28,40 @@
     top: 10px;
     bottom: 3px;
 }
-body{
 
-    background-color: rgb(255, 255, 255);
+body{
+    background: linear-gradient(to right,rgb(0, 30, 30), rgb(0, 75, 64)) 
+}
+   /* */
+
+.details{
+    color: rgb(243, 13, 174)
+}
+.event-body a{
+   
+    position: relative;
+    left: 60%;
+    
+    color: rgb(21, 255, 0);
+
+}
+.bord{
+    border-bottom: 1px solid greenyellow;
+}
+
+.profile-picture{
+    min-width: 52px;
+    min-height: 57px;
+max-width: 54px;
+max-height: 75px;
+position: relative;
+right: 5px;
+
+border-radius: 50%;
+ 
+ 
+}
+a.profile-link:hover{
+    text-decoration: none;
+
 }

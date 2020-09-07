@@ -258,3 +258,12 @@ body{
 
 
 }
+a.profile-link{
+    color: chocolate;
+}
+a.profile-link:hover{
+    color: rgb(30, 210, 69);
+    text-decoration: none;
+}
+
+

@@ -13,18 +13,15 @@ urlpatterns = [
     path('OneBlog/<int:pk>', views.OneBlog, name = 'OneBlog'),
 
 
-
-
-
-
-
     path('eventList/', views.eventList, name = 'eventList'),
-
     path('createEvent/', views.createEvent, name = 'createEvent'),
     path('deleteEvent/<int:pk>', views.deleteEvent, name = 'deleteEvent'),
-
-
     path('updateEvent/<int:pk>', views.updateEvent, name = 'updateEvent'),
+    path('eventpersons/<int:pk>', views.eventpersons, name = 'eventpersons'),
+    path('addperson/<int:pk>', views.addperson, name = 'addperson'),
+    path('delperson/<int:pk>', views.delperson, name = 'delperson'),
+
+
 
 
 

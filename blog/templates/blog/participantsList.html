@@ -1,0 +1,55 @@
+{% include 'UserModule/navbar.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/Eventlist.css'%}">
+<div class="container mb-3 participant ">
+   
+    
+        <div class="row pb-2 pt-0  ">
+            
+            <div class="col-sm-7  ">
+                <div class=" text-center text-info bord">Details of the Event</div>
+              
+                <div class="row text-danger font-weight-bold ml-1">{{event.event_name}}</div>
+                <div class="row text-warning ml-1">Dated: {{event.event_date|date:"M d, Y"}} {% if event.date_created != event.last_edited %}<span class="text-muted font-weight-light ml-2">(Edited)</span>{% endif %}</div>
+                <div class="row text-warning ml-1">at {{event.event_date|date:"h:i A "}}</div>
+                <div class="row details ml-1">Details: {{event.event_details}}</div>
+                <div class="row text-info ml-1 pb-3 ">Venue: {{event.venue}}</div>
+                {%if doesExist.count == 0 %}
+                <a class = "btn btn-outline-info btn-sm text-secondary mb-5 " href="{% url 'addperson' event.id %}"> Vote</a>
+                {%else%}
+                <a class = "btn btn-outline-info btn-sm text-secondary mb-5" href="{% url 'delperson' event.id %}">Down Vote</a>
+                {%endif%}
+            </div>
+           
+
+            <div class=" col-sm-5  ">
+                <div class=" text-left font-weight-bold text-warning bord">
+                    Participants
+                
+                </div>
+              
+
+            {%if participants%}
+                {%for participant in participants%}
+                <div class="mt-2">
+                {%if participant.person.profile.profile_pic%}
+                <img src="{{participant.person.profile.profile_pic.url}}" alt="" class="profile-picture  ">
+               
+                {%else%}
+                <img src="{% static '/images/user.png'%}" alt="" class="profile-picture  ">
+
+            {% endif %}
+                   <a class = "profile-link ml-1 text-danger" href="{%  url 'User_Profile' participant.person.id  %}">{{participant.person.full_name}}</a>
+                   <br>
+                </div>
+                {%endfor  %}
+            
+            {%endif%}
+            
+            </div>
+           
+        </div>
+
+</div>
+
+

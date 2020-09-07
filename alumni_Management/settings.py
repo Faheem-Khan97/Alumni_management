@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+     
     'django.contrib.admin',
     'django.contrib.auth', 
     'django.contrib.contenttypes',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
 #    'UserModule',
     'UserModule.apps.UsermoduleConfig',
     'blog.apps.BlogConfig',
+    
 ]
 AUTH_USER_MODEL = 'UserModule.User'
 
@@ -70,7 +72,8 @@ TEMPLATES = [
         },
     },
 ]
-
+# Channels
+#ASGI_APPLICATION = 'alumni_Management.routing.application'
 WSGI_APPLICATION = 'alumni_Management.wsgi.application'
 
 

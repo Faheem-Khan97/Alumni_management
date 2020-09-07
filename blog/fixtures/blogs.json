@@ -1,0 +1,284 @@
+[
+{
+    "model": "blog.blogpost",
+    "pk": 13,
+    "fields": {
+        "author": 30,
+        "title": "For Future Developers",
+        "body": "The programming languages you should learn in 2020:\r\n1. JavaScript\r\n2. Python\r\n3. Java\r\n4. Golang\r\n5. Ruby on Rails",
+        "date_posted": "2020-06-29T11:41:33.079Z",
+        "last_modified": "2020-07-02T05:23:01.255Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 14,
+    "fields": {
+        "author": 30,
+        "title": "Nature and Human Beings",
+        "body": "Nature and human beings have been always stand very close. Going to forests or gardens and standing in between, clicking a picture and posting on a social media have become a part of our everyday life. \r\n                        Nature and human beings increases beauty of each other and looks more beautiful together.",
+        "date_posted": "2020-06-30T07:21:47.442Z",
+        "last_modified": "2020-07-10T02:46:10.739Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 15,
+    "fields": {
+        "author": 30,
+        "title": "Suicide of Sushant",
+        "body": "Suicide of Sushant Singh Rajput has triggered  discussions on the nepotism nature of Bollywood.\r\nPeople are discussing  how is it difficult to settle in Bollywood if one is a outsider(means having no godfather in Bollywood). Director Karan Johar is being targeted because of the reason he has been seen making joke of late Sushant.",
+        "date_posted": "2020-07-02T05:01:37.689Z",
+        "last_modified": "2020-07-02T05:06:52.471Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 16,
+    "fields": {
+        "author": 28,
+        "title": "YouTube channels to learn Python",
+        "body": "I have listed some of the YouTube channels to learn python and its frameworks.\r\n1. Corey Schafer: Python playlist on this channel is comprehensive, covering almost every bit of python. You can also learn Django on this channel by developing a project.\r\n2. CodingForEnterpreneurs: This channel \r\n   is good as Corey Schafer channel. \r\n   Apart from providing python guide, it also provides \r\n   a comprehensive guide to Django, the most popular \r\n   Python Web Framework.\r\n3. Dennis Lvy: This channel mainly focuses on teaching \r\n   Django thoroughly. It has a also a lecture on Django \r\n   Rest Framework. You can also find projects built in \r\n   Django on this channel.",
+        "date_posted": "2020-07-02T05:58:41.550Z",
+        "last_modified": "2020-07-13T06:02:36.382Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 17,
+    "fields": {
+        "author": 28,
+        "title": "My Favorite Book to learn Quantitative aptitude",
+        "body": "My favorite book to learn and practice Quants is \"How to Prepare for Quantitative Aptitude for the CAT 7 Edition  (English, Paperback, Arun Sharma\".",
+        "date_posted": "2020-07-02T06:04:29.057Z",
+        "last_modified": "2020-07-02T06:04:29.057Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 18,
+    "fields": {
+        "author": 30,
+        "title": "Pavan Shetty, Director Of Porsche India, Resigns",
+        "body": "Pavan Shetty, Director Porsche India has resigned from his position on July 1, 2020 citing personal reasons. In the interim, Ashish Kaul \u2013 Head of Sales, Porsche India will assume responsibility for day-to-day operations at Porsche India and will report directly to Mr Gurpratap Boparai, Managing Director Skoda Auto Volkswagen India for Strategic initiatives. An announcement on the permanent replacement will be made in due course of time.",
+        "date_posted": "2020-07-02T06:09:55.366Z",
+        "last_modified": "2020-07-02T06:09:55.366Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 19,
+    "fields": {
+        "author": 30,
+        "title": "Visit to Hyderabad",
+        "body": "Hyderabad is one of the oldest cities of India. It was merged in India after a military operation in 1948. Before this, it was ruled by Nizam of Hyderabad. The popular places to visit in Hyderabad are\r\n1. Charminar\r\n2. Macca Masjid\r\n3. Salar Jung Museum\r\n4. Golconda Fort\r\n5. Hussain Sagar Lake\r\n6. Snow World.",
+        "date_posted": "2020-07-02T06:18:40.558Z",
+        "last_modified": "2020-07-02T06:18:40.558Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 20,
+    "fields": {
+        "author": 30,
+        "title": null,
+        "body": "This is a dummy post to check whether my blog application is working properly or not. Sorry for this dummy post.",
+        "date_posted": "2020-07-02T06:20:08.874Z",
+        "last_modified": "2020-07-13T06:32:42.453Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 21,
+    "fields": {
+        "author": 30,
+        "title": "Remembering Indian Independence",
+        "body": "India got independence from Britishers on Aug 15, 1947. Millions of brave freedom fighters were fighting for independence since 1800 AD.",
+        "date_posted": "2020-07-02T06:24:55.769Z",
+        "last_modified": "2020-07-02T06:24:55.769Z"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 33,
+    "fields": {
+        "blogpost": 14,
+        "files": "netw_TpIdHXp.jpg"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 34,
+    "fields": {
+        "blogpost": 14,
+        "files": "pr1_0CBDL6J.jpeg"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 35,
+    "fields": {
+        "blogpost": 14,
+        "files": "pr2_x7bWRDk.jpeg"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 36,
+    "fields": {
+        "blogpost": 14,
+        "files": "pr3_8j7QmKr.jpg"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 37,
+    "fields": {
+        "blogpost": 15,
+        "files": "s1.jpg"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 38,
+    "fields": {
+        "blogpost": 15,
+        "files": "s2.jpg"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 39,
+    "fields": {
+        "blogpost": 13,
+        "files": "j1.jpeg"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 40,
+    "fields": {
+        "blogpost": 13,
+        "files": "j2.png"
+    }
+},
+{
+    "model": "blog.files_of_posts",
+    "pk": 41,
+    "fields": {
+        "blogpost": 17,
+        "files": "quants.jpeg"
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 7,
+    "fields": {
+        "comment_by": 30,
+        "blogpost": 13,
+        "comment": "This is true absolutely. The demand curve of javascript is increasing exponentially. JavaScript is used nowadays for both backend and frotend as well."
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 8,
+    "fields": {
+        "comment_by": 30,
+        "blogpost": 13,
+        "comment": "jhgfttyjbbnkjnnnjjgvbj"
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 9,
+    "fields": {
+        "comment_by": 30,
+        "blogpost": 14,
+        "comment": "Almost everyone have some kind of pet at their home."
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 10,
+    "fields": {
+        "comment_by": 30,
+        "blogpost": 19,
+        "comment": "One other place you can visit in Hyderabad is Birla Mandir"
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 11,
+    "fields": {
+        "comment_by": 30,
+        "blogpost": 18,
+        "comment": "Hope to see a more responsible guy on this position."
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 12,
+    "fields": {
+        "comment_by": 28,
+        "blogpost": 19,
+        "comment": "Other Place to visit includes Ramoji Film City,"
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 13,
+    "fields": {
+        "comment_by": 28,
+        "blogpost": 17,
+        "comment": "This book is very helpful."
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 14,
+    "fields": {
+        "comment_by": 30,
+        "blogpost": 20,
+        "comment": "Hello"
+    }
+},
+{
+    "model": "blog.event",
+    "pk": 5,
+    "fields": {
+        "created_by": 28,
+        "event_name": "Get Together",
+        "event_details": "A simple event to introduce new batch.",
+        "venue": "College Canteen",
+        "event_date": "2020-07-24T05:30:00Z",
+        "date_created": "2020-07-13T16:32:12.229Z",
+        "last_edited": "2020-07-13T16:32:12.229Z"
+    }
+},
+{
+    "model": "blog.event",
+    "pk": 7,
+    "fields": {
+        "created_by": 28,
+        "event_name": "Lastly updated",
+        "event_details": "this is latest one",
+        "venue": "Near NareshIT building, Ameerpet, Hyderabad",
+        "event_date": "2020-07-25T23:50:00Z",
+        "date_created": "2020-07-13T16:46:49.741Z",
+        "last_edited": "2020-07-14T06:15:00.128Z"
+    }
+},
+{
+    "model": "blog.event",
+    "pk": 8,
+    "fields": {
+        "created_by": 30,
+        "event_name": "Meet On Coffee",
+        "event_details": "A Little discussion on what's going on in your career.",
+        "venue": "Amogha Tea Stall, Ameerpet, Hyderabad",
+        "event_date": "2020-07-25T08:56:00Z",
+        "date_created": "2020-07-14T05:54:03.193Z",
+        "last_edited": "2020-07-14T05:54:03.193Z"
+    }
+}
+]

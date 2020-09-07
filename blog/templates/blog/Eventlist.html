@@ -6,23 +6,29 @@
 <div class="container mb-3 ">
     {% for event in eventList%}
     
-        <div class="row py-2  content">
+        <div class="row pb-2 pt-0 content">
+            
             <div class="col-9 col-sm-8 event-body">
                 <div class="row text-danger font-weight-bold">{{event.event_name}}</div>
                 <div class="row text-warning">Dated: {{event.event_date|date:"M d, Y"}} {% if event.date_created != event.last_edited %}<span class="text-muted font-weight-light ml-2">(Edited)</span>{% endif %}</div>
                 <div class="row text-warning">at {{event.event_date|date:"h:i A "}}</div>
-                <div class="row text-secodary">{{event.event_details}}</div>
+                <div class="row details">Details: {{event.event_details}}</div>
                 <div class="row text-info">Venue: {{event.venue}}</div>
 
-                <div class="row text-success"> By: {{event.created_by.full_name}}</div>
+                <div class="row text-success"> Author: {{event.created_by.full_name}}</div>
+
+                <a href="{% url 'eventpersons' event.id %}">See Participants List</a>
            
             </div>
+           
 
-            <div class="col-3 col-sm-4 ">
+            <div class="col-3 col-sm-4 mt-2 ">
+
             {%if request.user == event.created_by%}
                 <a class = "btn btn-outline-info btn-sm mb-3 mr-2 " href="{% url 'updateEvent' event.id %}">Edit Event</a>
                 <a class = "btn btn-outline-danger btn-sm mb-3 mr-2 " href="{% url 'deleteEvent' event.id %}">Delete</a>
-                {%endif%}
+            {% endif %}
+            
             </div>
         </div>
 

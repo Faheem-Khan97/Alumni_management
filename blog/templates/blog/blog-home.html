@@ -46,7 +46,7 @@
             <hr>
             {% endblock %}
 
-
+            {%if posts%}
 
             {% for post in posts %}
 
@@ -67,7 +67,7 @@
 
                     <div class="col-10 col-sm-10 col-md-10 content  ">
                        
-                            <div class = " name p-1"><strong class= " mb-5">{{post.author.full_name}}</strong> . <span id = "date "> {{post.last_modified|date:"F d, Y"}}</span></div> 
+                            <div class = " name p-1"><strong class= " mb-5"><a class = "profile-link" href="{%  url 'User_Profile' post.author.id  %}">{{post.author.full_name}}</a></strong> . <span id = "date "> {{post.last_modified|date:"F d, Y"}}</span></div> 
 
                             
                             <a class = " post-text text-left ml-4" href="{% url 'OneBlog' post.id %}">
@@ -92,6 +92,7 @@
                 
 
             {% endfor %}
+           
 
 
           
@@ -119,6 +120,7 @@
             <a class = "btn btn-outline-info btn-small" href="?page={{posts.next_page_number}}">Next</a>
             <a class = "btn btn-outline-info btn-small" href="?page={{posts.paginator.num_pages}}">Last</a>
         {% endif %}
+        {%endif %}
         
 
 

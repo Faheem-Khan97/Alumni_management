@@ -25,18 +25,19 @@
             <img src="{%static './images/clg_nature.jpeg'%}" alt="Los Angeles" >
             <div class="carousel-caption">
               
-              <p class="your_name font-weight-bold text-warning  " > Welcome <span >{{request.user.get_short_name}}!</span> </p>
+              <p class="your_name font-weight-bold   " > Welcome <span >{{request.user.get_short_name}}!</span> </p>
             </div>   
           </div>
           <div class="carousel-item">
             <img src="{%static './images/clgaward.jpg'%}"  alt="Chicago" >
             <div class="carousel-caption btn-wrap">
-             
-              <button class="btn btn-outline-success btn-medium "> 
-                <h5>Latest Added Event</h5>  
-                <h3>{{event.event_name}}</h3>
+             <a href="{% url 'eventList' %}">
+              <button class="btn btn-outline-warning btn-medium "> 
+                <h6>Latest Added Event</h6>  
+                <h4>{{event.event_name}}</h3>
                 <p>{{event.event_date}}</p>
               </button>
+            </a>
             </div>   
           </div>
 

@@ -157,7 +157,7 @@ font-size: 14px;
 
 .your_name{
     animation-name: name;
- color: rgb(96, 34, 177);
+ color: rgb(241, 102, 67);
  text-align: center;
  position: relative;
  bottom: 65vh;
@@ -179,5 +179,15 @@ font-size: 14px;
   }
 
   .your_name span{
-      color: rgb(0, 89, 190);
+      color: rgb(3, 170, 247);
+  }
+
+  .carousel-item:after {
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(0, 0, 0, 0.6);
   }

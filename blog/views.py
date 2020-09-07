@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .forms import BlogPostForm, BlogPostWithFilesForm, CommentForm, EventCreationForm
 
-from .models import BlogPost, Files_Of_posts, Comment,Event
+from .models import BlogPost, Files_Of_posts, Comment,Event, EventPeople
 # Create your views here.
 
 
@@ -160,6 +160,7 @@ def createEvent(request):
             Event =  form.save(commit = False)
             Event.created_by = request.user
             Event.save()
+            EventPeople.objects.create(event = Event, person = request.user)
             return redirect('eventList')
 
     context = {'form':form}
@@ -192,3 +193,38 @@ def updateEvent(request, pk):
    
 
     return render(request, 'blog/updateEvent.html', {'form':form})
+
+
+def eventpersons(request, pk):
+    
+    event = Event.objects.get(id = pk)
+    name = event.created_by.full_name
+    participants = event.eventpeople_set.all()
+    doesExist = participants.filter(person = request.user)
+    print(doesExist)
+    
+    context = {'participants': participants, 'name':name, 'event':event, 'doesExist': doesExist}
+
+    return render(request, 'blog/participantsList.html', context)
+
+def addperson(request,pk):
+    event = Event.objects.get(id = pk)
+
+    person = request.user
+    participants = EventPeople.objects.filter(event = event)
+    doesExist = participants.filter(person = request.user)
+    #print(doesExist)
+    context = {'event': event}
+    if(doesExist.count() == 0):
+        EventPeople.objects.create(event = event, person = request.user)
+    return redirect(reverse('eventpersons', kwargs={"pk": pk}))
+
+
+def delperson(request,pk):
+    event = Event.objects.get(id = pk)
+
+    person = request.user
+    participants = EventPeople.objects.filter(event = event)
+    doesExist = participants.filter(person = request.user)
+    doesExist.delete()
+    return redirect(reverse('eventpersons', kwargs={"pk": pk}))

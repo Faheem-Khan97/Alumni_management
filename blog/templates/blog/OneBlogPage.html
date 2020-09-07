@@ -59,7 +59,7 @@
                     <div class="row p-3">
                                 
                         <div class="col-6 text-left font-weight-bold">
-                            {{post.author.full_name}}
+                            <a class = "profile-link" href="{%  url 'User_Profile' post.author.id  %}">{{post.author.full_name}}</a>
 
                         </div>
                         
